@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite Especial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            background-color: #dd8fb3;
+            background-size: cover; /* Cobrir toda a tela */
+            background-position: center; /* Centralizar a imagem */
+            background-repeat: no-repeat; /* Evitar repetição */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .title {
+            font-size: 24px;
+            color: #333;
+        }
+        .message {
+            font-size: 18px;
+            margin: 20px 0;
+            color: #555;
+        }
+        .buttons button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes {
+            background-color: #00FA9A; /* Cor verde */
+            color: black;
+        }
+        .yes:hover {
+            background-color: #adc9be; /* Cor verde mais clara no hover */
+        }
+        .no {
+            background-color: #f44336;
+            color: white;
+        }
+        .no:hover {
+            background-color: #bd7a69;
+        }
+        .back {
+            background-color: #007BFF;
+            color: white;
+        }
+        .back:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="step1" class="card">
+        <h1 class="title">Você foi escolhido para uma missão especial! 🚀</h1>
+        <p class="message">Aceitam ser os padrinhos da pequena Sophia? ❤️</p>
+        <div class="buttons">
+            <button class="yes" onclick="celebrateAndShowMission()">Sim, aceito! 🎉</button>
+            <button class="no" onclick="declineInvite()">Não posso 😢 (Eu não faria isso 💀)</button>
+        </div>
+    </div>
+
+    <div id="step2" class="card hidden">
+        <h1 class="title">Parabéns! Sua missão é...</h1>
+        <p class="message">Guiar, proteger e encher de amor a pequena Sophia! ❤️</p>
+        <div class="buttons">
+            <button class="back" onclick="goBack()">Voltar 🔙</button>
+        </div>
+        <p class="message">Envie um print da sua reposta para os papais!</p>
+    </div>
+
+    <!-- Biblioteca canvas-confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        function celebrateAndShowMission() {
+            // Disparar confetes
+            confetti({
+                particleCount: 100, // Quantidade de confetes
+                spread: 70, // Quão espalhados os confetes estarão
+                origin: { y: 0.6 } // Origem dos confetes (em relação à tela)
+            });
+
+            // Mostrar a próxima etapa após um pequeno delay
+            setTimeout(() => {
+                document.getElementById("step1").classList.add("hidden");
+                document.getElementById("step2").classList.remove("hidden");
+            }, 1000); // 1 segundo de delay
+        }
+
+        function goBack() {
+            document.getElementById("step2").classList.add("hidden");
+            document.getElementById("step1").classList.remove("hidden");
+        }
+
+        function declineInvite() {
+            // Redirecionar para a página de susto
+            window.location.href = "susto.html";
+        }
+    </script>
+</body>
+</html>

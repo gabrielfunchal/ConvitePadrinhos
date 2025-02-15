@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susto!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        .message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .image {
+            margin-top: 50px;
+            width: 100%;
+            max-width: 500px;
+            animation: shake 0.5s ease-in-out infinite;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+        .back-button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="message">Você não podia escapar! 😱</h1>
+    <img src="imagem-demonio.jpg" alt="Imagem Demoníaca" class="image">
+    <p class="message">Você receberá uma ligação em 7 dias! 😈</p>
+    <button class="back-button" onclick="goBack()">Voltar ao Convite 🔙</button>
+    <p class="message">Envie um print da sua reposta para os papais!</p>
+
+    <script>
+        function goBack() {
+            // Redirecionar para a página do convite especial
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
